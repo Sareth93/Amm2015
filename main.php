@@ -23,6 +23,12 @@
                     $controller->content($value);
                 ?>
             </div>
+            <div id="sidebar">
+                <?php
+                    $controller->sidebar();
+                ?>
+            </div>
+            <div id="footer"></div>
         </div>
     </body>
 </html>
