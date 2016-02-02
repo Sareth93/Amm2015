@@ -28,6 +28,7 @@
                     $controller->sidebar();
                 ?>
             </div>
+            <div id="clear"></div>
             <div id="footer"></div>
         </div>
     </body>

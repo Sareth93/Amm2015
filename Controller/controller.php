@@ -28,6 +28,16 @@
             }
         }
         
+        public function sidebar(){
+            if(isset($_SESSION['loggedIn'])){
+                if(isset($_SESSION['admin']))
+                    include "Viewer/Sidebar/admin.php";
+                else
+                    include "Viewer/Sidebar/user.php";
+            }
+            else
+                include "Viewer/Sidebar/guest.php";
+        }
     }
 
 ?>
