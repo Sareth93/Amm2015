@@ -48,6 +48,31 @@
                 setcookie(session_name (),'',time()-2592000,'/');
             session_destroy();                    
         }
+        //elenco Canzoni
+        public function songs(){
+            $this->connectToDB();
+            if(self::$mysql->errno>0)
+                return "Login Error";
+            
+            $result= self::$mysql->query("SELECT title, artist, songs.id FROM songs, artists WHERE artists.id=songs.artist_id;");
+            if(self::$mysql->errno>0)
+                return "Error";
+            else
+                return $result;
+        }
+        
+        //elenco Artisti
+        public function artists(){
+            $this->connectToDB();
+            if(self::$mysql->errno>0)
+                return "Login Error";
+            $result= self::$mysql->query("SELECT name, id FROM artists;");
+            if(self::$mysql->errno>0)
+                return "Error";
+            else
+                return "Ok";
+        }
+        
         
         
         

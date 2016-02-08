@@ -26,6 +26,21 @@
                 if($result!= "Error")
                     include 'Viewer/loginAttempt.php';
             }
+            else if($arg=="canzone"){
+                $song=$this->model->songs();
+                if($song=="Errore Login")
+                    include 'Viewer/failLogin.php';
+                else if($song== "Error")
+                    include 'Viewer/error.php';
+                else{
+                    if(isset($_SESSION['admin'])){
+                        $artist=$this->model->artists();
+                        include 'Viewer/songListAdmin.php';
+                    }
+                    else
+                        include 'Viewer/songList.php';
+                }
+            }
         }
         
         public function sidebar(){
