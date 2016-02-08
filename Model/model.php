@@ -21,7 +21,7 @@
                 $this->connectToDB();
                 if(self::$mysql->errno>0)
                     return "Error";
-                $result=self::$mysql->query("SELECT username, password, id FROM utentiù;");
+                $result=self::$mysql->query("SELECT username, password, id FROM users;");
                 while($row=$result->fetch_row()){
                     if(($_REQUEST['username']==$row[0])&& ($_REQUEST['password']==$row[1])){
                         $_SESSION["loggedIn"]=true;
