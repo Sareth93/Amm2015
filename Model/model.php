@@ -1,5 +1,4 @@
-<?php
-    
+<?php    
     class model{
         private static $mysqli;
         private static $usrRoot="accaFederico";
@@ -9,8 +8,7 @@
         public function __construct(){
             self::$mysqli=new mysqli();
             session_start();
-        }
-        
+        }        
         private function connectToDB(){
             @self::$mysqli->connect("localhost", self::$usrRoot, self::$pwdRoot, self::$db);
         }
@@ -28,8 +26,7 @@
                         $_SESSION["usr"]=$_REQUEST['usr'];
                         $_SESSION["pwd"]=$_REQUEST['pwd'];                        
                         if($row[2]==1)
-                            $_SESSION["adm"]=true;
-                        
+                            $_SESSION["adm"]=true;                        
                         return $_SESSION["usr"];
                     }
                 }
@@ -219,11 +216,7 @@
                         return "Ok";
                 }
             }
-        }
-        
-        
-        
+        }                 
     }
-
 ?>
 
