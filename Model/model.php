@@ -6,7 +6,7 @@
         private static $pwdRoot="picchio8034";
         private static $db="amm15_accaFederico";
         
-        public function _construct(){
+        public function __construct(){
             self::$mysqli=new mysqli();
             session_start();
         }
