@@ -21,6 +21,16 @@
                 else
                     include 'Viewer/loginTry.php';
             }
+            else if($arg=="newUser"){
+                $result=$this->model->newUser();
+                
+                if($result=="Insert Error")
+                    include 'Viewer/invalidUsername.php';
+                else if($result=="Error")
+                    include 'Viewer/error.php';
+                else
+                    include "Viewer/registrationDone.php";
+            }
             else if($arg=="logout"){
                 $result=  $this->model->logout();
                 if($result!= "Error")
@@ -33,7 +43,7 @@
                 else if($song== "Error")
                     include 'Viewer/error.php';
                 else{
-                    if(isset($_SESSION['admin'])){
+                    if(isset($_SESSION['Adm'])){
                         $artist=$this->model->artists();
                         include 'Viewer/songListAdmin.php';
                     }
@@ -41,12 +51,12 @@
                         include 'Viewer/songList.php';
                 }
             }
-            else if($arg=="newUser"){
-                $result=$this->model->newUser();
-                
-                if($result=="Insert Error")
-                    include 'Viewer/invalidUsername.php'
-                else if()
+            else if($arg=="newFavorite"){
+                if(isset($_SESSION['Adm'])){
+                    $usr=$this->model->usersList();
+                    $songs=  $this->model->notFavorite();
+                    include 'Viewer/newFavorite.php';
+                }
             }
         }
         
