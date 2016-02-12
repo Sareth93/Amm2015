@@ -5,7 +5,7 @@
         
         public $model;
         public function __construct(){
-            $this->model=new Model();
+            $this->model=new model();
         }
         
         public function content($arg){
