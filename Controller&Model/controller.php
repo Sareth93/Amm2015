@@ -1,5 +1,5 @@
 <?php
-    include_once("Model/model.php");
+    include_once("model.php");
     
     class controller{
         
