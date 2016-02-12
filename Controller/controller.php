@@ -51,6 +51,24 @@
                         include 'Viewer/songList.php';
                 }
             }
+            else if($arg=="newSong"){
+                if(isset($_SESSION['Adm'])){
+                    $result=$this->model->addSong();
+                    if($result!="Error")
+                        include 'Viewer/songAdded.php';
+                    else
+                        include 'Viewer/error.php';
+                }
+            }
+            else if($arg=="deleteSong"){
+                if(isset($_SESSION['Adm'])){
+                    $result=  $this->model->deleteSong();
+                    if($result != "Error")
+                        include "Viewer/songDeleted.php";
+                    else
+                        include "Viewer/error.php";
+                }
+            }
             else if($arg=="newFavorite"){
                 if(isset($_SESSION['Adm'])){
                     $usr=$this->model->usersList();

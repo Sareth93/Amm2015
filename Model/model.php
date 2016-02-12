@@ -39,8 +39,7 @@
             else {
                 return "Error";
             }
-        }
-        
+        }        
         //gestione logout e terminazione sessione
         public function logout(){
             $_SESSION=array();
@@ -72,8 +71,7 @@
             }
             else
                 return "Error";
-        }
-        
+        }        
         //elenco utenti
         public function usersList(){
             $this->connectToDB();
@@ -96,6 +94,39 @@
             else
                 return $result;
         }
+        //aggiunta canzone
+        public function addSong(){
+            if(isset($_REQUEST['title']) && isset($_REQUEST['artist'])){
+                $title=$_REQUEST['title'];
+                $artist=$_REQUEST['artist'];
+                $this->connectToDB();
+                if(self::$mysqli->errno>0)
+                    return "Error";
+                else{
+                    self::$mysqli->query("INSERT INTO songs(title,artist_id) VALUES ('$title', '$artist');");
+                    if(self::$mysqli->errno>0)
+                        return "Error";
+                    else
+                        return "Ok";
+                }
+            }
+        }
+        //rimozione canzone
+        public function deleteSong(){
+            if(isset($_REQUEST['delete'])){
+                $this->connectToDB();
+                if(self::$mysqli->errno>0)
+                    return "Error";
+                else{
+                    $song_id=$_REQUEST['delete'];
+                    $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id' AND favoriteBy IS NULL;");
+                    if(self::$mysqli->errno>0)
+                        return "Error";
+                    else
+                        return "Ok";
+                }
+            }
+        }
         //elenco canzoni non presenti tra i preferiti dell'utente
         public function notFavorite(){
             $this->connectToDB();
@@ -107,7 +138,7 @@
             else
                 return $result;                
         }
-        //inserimento preferito
+        //aggiunta ai preferiti
         public function favoriteSong(){
             if(isset($_REQUEST['user']) && isset($_REQUEST['song'])){
                 $user=$_REQUEST['user'];
