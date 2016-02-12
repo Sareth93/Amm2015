@@ -21,6 +21,12 @@
                 else
                     include 'Viewer/loginTry.php';
             }
+            else if($arg="register"){
+                if(isset($_SESSION['logIN']))
+                    include 'Viewer/logoutFail.php';
+                else
+                    include 'Viewer/register.php';
+            }
             else if($arg=="newUser"){
                 $result=$this->model->newUser();
                 
