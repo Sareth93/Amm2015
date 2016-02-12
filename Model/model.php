@@ -12,7 +12,7 @@
         }
         
         private function connectToDB(){
-            self::$mysqli->connect("localhost",self::$usrRoot, self::$pwdRoot, self::$db);
+            @self::$mysqli->connect("localhost",self::$usrRoot, self::$pwdRoot, self::$db);
         }
         
         //gestione login
