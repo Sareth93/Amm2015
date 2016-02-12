@@ -43,7 +43,7 @@
                 else if($song== "Error")
                     include 'Viewer/error.php';
                 else{
-                    if(isset($_SESSION['Adm'])){
+                    if(isset($_SESSION['adm'])){
                         $artist=$this->model->artists();
                         include 'Viewer/songListAdmin.php';
                     }
@@ -52,35 +52,71 @@
                 }
             }
             else if($arg=="newSong"){
-                if(isset($_SESSION['Adm'])){
+                if(isset($_SESSION['adm'])){
                     $result=$this->model->addSong();
                     if($result!="Error")
                         include 'Viewer/songAdded.php';
                     else
                         include 'Viewer/error.php';
                 }
+                else
+                    include 'Viewer/accessDenied.php';
             }
             else if($arg=="deleteSong"){
-                if(isset($_SESSION['Adm'])){
+                if(isset($_SESSION['adm'])){
                     $result=  $this->model->deleteSong();
                     if($result != "Error")
                         include "Viewer/songDeleted.php";
                     else
                         include "Viewer/error.php";
                 }
+                else
+                    include 'Viewer/accessDenied.php';
             }
-            else if($arg=="newFavorite"){
-                if(isset($_SESSION['Adm'])){
+            else if($arg="favoriteList"){
+                if(isset($_SESSION['usr'])){
+                    $result=$this->model->favorites();
+                    if($result="Error")
+                        include 'Viewer/error.php';
+                    else
+                        include 'Viewer/favoritesList.php';
+                }
+            }
+            else if($arg=="notFavoriteList"){
+                if(isset($_SESSION['usr'])){
                     $usr=$this->model->usersList();
                     $songs=  $this->model->notFavorite();
                     include 'Viewer/newFavorite.php';
                 }
             }
+            else if($arg=="addFavorite"){
+                $temp=$this->model->addFavoriteSong();
+                if($temp=="Error")
+                    include 'Viewer/newFavorite.php';
+                else
+                    include 'Viewer/favoriteAdded.php';
+            }
+            else if($arg="removeFavorite"){
+                $result=$temp->model->removeFavorite();
+                if($result=="Error"){
+                    echo "Errore!";
+                    include 'Viewer/favoriteList.php';
+                }
+                else
+                    include 'Viewer/favoriteRemoved.php';
+            }
+            else if($arg="addArtist"){
+                $temp=$this->model->addArtist();
+                if($temp=="Error")
+                    include "Viewer/newArtist.php";
+                else
+                    include "Viewer/artistAdded.php";
+            }
         }
         
         public function sidebar(){
             if(isset($_SESSION['logIN'])){
-                if(isset($_SESSION['Adm']))
+                if(isset($_SESSION['adm']))
                     include "Viewer/Sidebar/adm.php";
                 else
                     include "Viewer/Sidebar/usr.php";
