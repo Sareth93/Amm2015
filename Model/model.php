@@ -24,7 +24,7 @@
                 $result=self::$mysqli->query("SELECT username, password, id FROM users;");
                 while($row=$result->fetch_row()){
                     if(($_REQUEST['username']==$row[0])&& ($_REQUEST['password']==$row[1])){
-                        $_SESSION["loggedIn"]=true;
+                        $_SESSION["logIN"]=true;
                         $_SESSION["username"]=$_REQUEST['username'];
                         $_SESSION["password"]=$_REQUEST['password'];
                         
@@ -41,24 +41,49 @@
             }
         }
         
-        //logout e terminazione sessione
+        //gestione logout e terminazione sessione
         public function logout(){
             $_SESSION=array();
             if(session_id()!="" || isset($_COOKIE[session_name()]))
                 setcookie(session_name (),'',time()-2592000,'/');
             session_destroy();                    
         }
-        //elenco Canzoni
+        //elenco canzoni
         public function songs(){
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Login Error";
             
-            $result= self::$mysqli->query("SELECT title, artist, songs.id FROM songs, artists WHERE artists.id=songs.artist_id;");
+            $result= self::$mysqli->query("SELECT title, artistName, songs.song_id FROM songs, artists WHERE artists.artist_id=songs.artist_id;");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
                 return $result;
+        }
+        //inserimento nuova utente
+        public function newUser(){
+            if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
+                $result=  $this->connectToDB();
+                if(self::$mysqli->errno>0)
+                    return "Error";
+                $user=$_REQUEST['username'];
+                $password=$_REQUEST['password'];
+                
+                self::$mysqli->autocommit(false);
+                $result=  self::$mysqli->query("INSERT INTO users(username,password) VALUES ('$user', 'pass');");
+                if(self::$mysqli->errno>0){
+                    self::$mysqli->rollback();
+                    self::$mysqli->close();
+                    return "Error";
+                }
+                else{
+                    self::$mysqli->commit();
+                    self::$mysqli->autocommit(true);
+                    return "Ok";
+                }                
+            }
+            else
+                return "Error";
         }
         
         //elenco Artisti

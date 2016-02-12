@@ -5,7 +5,7 @@
         <meta http-equip="Content-Type" content="text/html; charset=utf-8">
     </head>
     <body>
-        <h3>Navigare sul sito richiede il login</h3>
+        <h3>Per poter navigare sul sito è necessario effettuare il login</h3>
         <form action="index.php?arg=login" method="POST">
             <label>Username</label>
             <input id="username" value="" name="username" type="text" required="required" />
