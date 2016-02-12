@@ -12,7 +12,7 @@
 <script tupe="text/javascript">
 $("#confpwd").keyup(function(){
     var confpwd=$("#confpwd").val();
-    var pwd=$("#password").val()
+    var pwd=$("#password").val();
     if(pwd!=confpdw){
         $.get("Viewer/unvalid.hmtl",function(data){
             $("#allert").html(data);
@@ -28,4 +28,22 @@ $("#confpwd").keyup(function(){
     else
         $.("#allert").html("");
 });
-
+$.("#password").keyup(function(){
+    var confpwd=$("#confpwd").val();
+    var pwd=$("#password").val();
+    if(pwd!=confpdw){
+        $.get("Viewer/unvalid.hmtl",function(data){
+            $("#allert").html(data);
+        })
+        $("#conferma").prop("disabled",true);
+    }
+    else if(pwd!="" && confpwd!=""){
+        $.get("Viewer/valid.html", function(data){
+            $("#allert").html(data);
+        })
+        $("#conferma").prop("disabled",false);
+    }
+    else
+        $.("#allert").html("");    
+});
+</script>
