@@ -12,7 +12,7 @@
         }
         
         private function connectToDB(){
-            @self::$mysqli->connect("localhost",self::$usrRoot, self::$pwdRoot, self::$db);
+            @self::$mysqli->connect("localhost", self::$usrRoot, self::$pwdRoot, self::$db);
         }
         
         //gestione login
@@ -23,22 +23,20 @@
                     return "Error";
                 $result=self::$mysqli->query("SELECT username, password, id FROM users;");
                 while($row=$result->fetch_row()){
-                    if(($_REQUEST['usr']==$row[0])&& ($_REQUEST['pwd']==$row[1])){
+                    if(($_REQUEST['usr']==$row[0]) && ($_REQUEST['pwd']==$row[1])){
                         $_SESSION["logIN"]=true;
                         $_SESSION["usr"]=$_REQUEST['usr'];
-                        $_SESSION["pwd"]=$_REQUEST['pwd'];
-                        
+                        $_SESSION["pwd"]=$_REQUEST['pwd'];                        
                         if($row[2]==1)
                             $_SESSION["adm"]=true;
                         
-                        return $_SESSION["username"];
+                        return $_SESSION["usr"];
                     }
                 }
                 return "Error";
             }
-            else {
-                return "Error";
-            }
+            else
+                return "Error";            
         }        
         //gestione logout e terminazione sessione
         public function logout(){
