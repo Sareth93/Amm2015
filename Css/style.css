@@ -29,7 +29,7 @@ body{
 #content{
     background-color: white;
     float:right;
-    width:90.5%;
+    width:84.53%;
     height:480px;
     overflow: scroll;
     padding-bottom: 20px;
@@ -45,7 +45,7 @@ body{
 #sidebar{
     background-color: white;
     float:right;
-    width:9%;
+    width:15%;
     color:red;
     height: 480px;
     text-align: center;
