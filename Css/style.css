@@ -29,8 +29,8 @@ body{
 #content{
     background-color: white;
     float:right;
-    width:89%;
-    height:440px;
+    width:90.5%;
+    height:480px;
     overflow: scroll;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -76,7 +76,7 @@ body{
 }
 
 #clear{
-    height: 2px;
+    height: 1px;
     width:100%;
     text-align: center;
     display: block;
@@ -86,7 +86,7 @@ body{
 }
 
 #footer{
-    height: 30px;
+    height: 20px;
     width:100%;
     text-align: center;
     display: block;
