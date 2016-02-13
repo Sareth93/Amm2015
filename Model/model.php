@@ -96,9 +96,8 @@
             /*if(self::$mysqli->errno>0){
                 echo "ciao3";
             return "Error";}*/
-            else{
-                echo "ciao4";
-            return $result;}
+            //else
+            return $result;
         }
         //aggiunta canzone
         public function addSong(){
