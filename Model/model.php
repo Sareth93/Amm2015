@@ -27,7 +27,7 @@
                         $_SESSION["password"]=$_REQUEST['password'];                        
                         if($row[2]==1)
                             $_SESSION["adm"]=true;                        
-                        return $_SESSION["usr"];
+                        return $_SESSION["username"];
                     }
                 }
                 echo "ciao1";
