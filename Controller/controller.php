@@ -10,7 +10,7 @@
         
         public function content($arg){
             //presentazione menù login
-            if(($arg=="" && !isset($_SESSION['loggedIn'])) || ($arg=="loginTry"))
+            if(($arg=="" && !isset($_SESSION['logIN'])) || ($arg=="loginTry"))
                 include 'Viewer/loginTry.php';
             else if($arg=="" && isset($_SESSION['loggedIn']))
                 include 'Viewer/loginSucc.php';
@@ -26,12 +26,12 @@
                 if($result!= "Error")
                     include 'Viewer/loginTry.php';
             }
-            /*else if($arg="register"){
-                if(isset($_SESSION['loggedIn']))
+            else if($arg="register"){
+                if(isset($_SESSION['logIN']))
                     include 'Viewer/logoutFail.php';
                 else
                     include 'Viewer/register.php';
-            }*/
+            }
             else if($arg=="newUser"){
                 $result=$this->model->newUser();                
                 if($result=="IError")
