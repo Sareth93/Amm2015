@@ -10,9 +10,9 @@
         
         public function content($arg){
             //presentazione menù login
-            if(($arg=="" && !isset($_SESSION['logIN'])) || ($arg=="loginTry"))
+            if(($arg=="" && !isset($_SESSION['loggedIn'])) || ($arg=="loginTry"))
                 include 'Viewer/loginTry.php';
-            else if($arg=="" && isset($_SESSION['logIN']))
+            else if($arg=="" && isset($_SESSION['loggedIn']))
                 include 'Viewer/loginSucc.php';
             else if($arg=="login"){
                 $result=$this->model->login();
@@ -27,7 +27,7 @@
                     include 'Viewer/loginTry.php';
             }
             else if($arg="register"){
-                if(isset($_SESSION['logIN'])){
+                if(isset($_SESSION['loggedIn'])){
                     echo "ciao1";
                     include 'Viewer/logoutFail.php';}
                 else
