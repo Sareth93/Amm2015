@@ -88,8 +88,7 @@
         }
         //elenco canzoni
         public function songs(){
-            $this->connectToDB();
-            echo "ciao1";
+            $this->connectToDB();           
             if(self::$mysqli->errno>0)
                 echo "ciao2";
                 return "Login Error";            
