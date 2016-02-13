@@ -30,12 +30,11 @@
                         return $_SESSION["username"];
                     }
                 }
-                echo 'ciao1';
                 return "Error";
             }
-            else
+            else{
                 echo 'ciao2';
-                return "Error";            
+                return "Error";}            
         }        
         //gestione logout e terminazione sessione
         public function logout(){        
