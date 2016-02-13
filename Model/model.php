@@ -17,8 +17,9 @@
         public function login(){
             if(isset($_REQUEST['username'])&& isset($_REQUEST['password'])){
                 $this->connectToDB();
-                if(self::$mysqli->errno>0)
-                    return "Error";
+                if(self::$mysqli->errno>0){
+                    echo 'ciao1';
+                    return "Error";}
                 $result=self::$mysqli->query("SELECT username, password, id FROM users;");
                 while($row=$result->fetch_row()){
                     if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
