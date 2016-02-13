@@ -26,13 +26,6 @@
                 if($result!= "Error")
                     include 'Viewer/loginTry.php';
             }
-            else if($arg="register"){
-                if(isset($_SESSION['loggedIn'])){
-                    echo "ciao1";
-                    include 'Viewer/logoutFail.php';}
-                else
-                    include 'Viewer/register.php';
-            }
             else if($arg=="newUser"){
                 $result=$this->model->newUser();                
                 if($result=="IError")
@@ -117,6 +110,13 @@
                     include "Viewer/newArtist.php";
                 else
                     include "Viewer/artistAdded.php";
+            }
+            else if($arg="register"){
+                if(isset($_SESSION['loggedIn'])){
+                    echo "ciao1";
+                    include 'Viewer/logoutFail.php';}
+                else
+                    include 'Viewer/register.php';
             }
         }
         
