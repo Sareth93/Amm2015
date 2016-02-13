@@ -79,13 +79,6 @@
                     include 'Viewer/newFavorite.php';
                 }
             }
-            else if($arg="addArtist"){
-                $temp=$this->model->addArtist();
-                if($temp=="Error")
-                    include "Viewer/newArtist.php";
-                else
-                    include "Viewer/artistAdded.php";
-            }
             else if($arg=="addFavorite"){
                 $temp=$this->model->addFavoriteSong();
                 if($temp=="Error")
@@ -101,6 +94,13 @@
                 }
                 else
                     include 'Viewer/favoriteRemoved.php';
+            }
+            else if($arg="addArtist"){
+                $temp=$this->model->addArtist();
+                if($temp=="Error")
+                    include "Viewer/newArtist.php";
+                else
+                    include "Viewer/artistAdded.php";
             }
             else if($arg="register"){
                 if(isset($_SESSION['logIN']))
