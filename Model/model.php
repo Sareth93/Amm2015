@@ -37,15 +37,15 @@
         }        
         //gestione logout e terminazione sessione
         public function logout(){            
-            $_SESSION=array();
+            /*$_SESSION=array();
             if(isset($_SESSION[session_name()])){
                 setcookie(session_name(),'',time()-3600);
             }
-            session_destroy();
-            /*$_SESSION=array();
+            session_destroy();*/
+            $_SESSION=array();
             if(session_id()!="" || isset($_COOKIE[session_name()]))
                 setcookie(session_name (),'',time()-2592000,'/');
-            session_destroy();     */               
+            session_destroy();              
         }
         //inserimento nuova utente
         public function newUser(){
