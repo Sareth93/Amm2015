@@ -34,7 +34,7 @@
                 return "Error";
             }
             else
-                echo "ciao2;
+                echo "ciao2";
                 return "Error";            
         }        
         //gestione logout e terminazione sessione
