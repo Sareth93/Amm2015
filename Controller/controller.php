@@ -27,8 +27,9 @@
                     include 'Viewer/loginTry.php';
             }
             else if($arg="register"){
-                if(isset($_SESSION['logIN']))
-                    include 'Viewer/logoutFail.php';
+                if(isset($_SESSION['logIN'])){
+                    echo "ciao1";
+                    include 'Viewer/logoutFail.php';}
                 else
                     include 'Viewer/register.php';
             }
