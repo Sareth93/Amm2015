@@ -15,10 +15,12 @@
             else if($arg=="" && isset($_SESSION['logIN']))
                 include 'Viewer/loginSucc.php';
             else if($arg=="login"){
-                $result=$this->model->login();
+                echo "ciao1";
+                $result=$this->model->login();                
                 if($result != "Error")
                     include 'Viewer/loginSucc.php';
                 else
+                    echo "ciao2";
                     include 'Viewer/loginTry.php';
             }
             else if($arg=="logout"){
