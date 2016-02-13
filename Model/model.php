@@ -22,7 +22,7 @@
                 $result=self::$mysqli->query("SELECT username, password, id FROM users;");
                 while($row=$result->fetch_row()){
                     if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
-                        $_SESSION["loggedIn"]=true;
+                        $_SESSION["logIN"]=true;
                         $_SESSION["username"]=$_REQUEST['username'];
                         $_SESSION["password"]=$_REQUEST['password'];                        
                         if($row[2]==1)
