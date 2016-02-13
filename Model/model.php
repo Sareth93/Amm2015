@@ -89,12 +89,16 @@
         //elenco canzoni
         public function songs(){
             $this->connectToDB();
+            echo "ciao1";
             if(self::$mysqli->errno>0)
+                echo "ciao2";
                 return "Login Error";            
             $result= self::$mysqli->query("SELECT title, artistName, songs.song_id FROM songs, artists WHERE artists.artist_id=songs.artist_id;");
             if(self::$mysqli->errno>0)
+                echo "ciao3";
                 return "Error";
             else
+                echo "ciao4";
                 return $result;
         }
         //aggiunta canzone
