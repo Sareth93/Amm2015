@@ -30,9 +30,11 @@
                         return $_SESSION["usr"];
                     }
                 }
+                echo "ciao1";
                 return "Error";
             }
             else
+                echo "ciao2;
                 return "Error";            
         }        
         //gestione logout e terminazione sessione
