@@ -37,8 +37,9 @@
             }
             else if($arg=="songs"){
                 $songs=$this->model->songs();
-                if($songs=="Login Error")
-                    include 'Viewer/loginFail.php';
+                if($songs=="Login Error"){
+                    echo "ciao1";
+                    include 'Viewer/loginFail.php';}
                 else if($songs== "Error")
                     include 'Viewer/error.php';
                 else{
