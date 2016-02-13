@@ -15,16 +15,16 @@
         
         //gestione login
         public function login(){
-            if(isset($_REQUEST['usr'])&& isset($_REQUEST['pwd'])){
+            if(isset($_REQUEST['username'])&& isset($_REQUEST['password'])){
                 $this->connectToDB();
                 if(self::$mysqli->errno>0)
                     return "Error";
                 $result=self::$mysqli->query("SELECT username, password, id FROM users;");
                 while($row=$result->fetch_row()){
-                    if(($_REQUEST['usr']==$row[0]) && ($_REQUEST['pwd']==$row[1])){
+                    if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
                         $_SESSION["logIN"]=true;
-                        $_SESSION["usr"]=$_REQUEST['usr'];
-                        $_SESSION["pwd"]=$_REQUEST['pwd'];                        
+                        $_SESSION["username"]=$_REQUEST['username'];
+                        $_SESSION["password"]=$_REQUEST['password'];                        
                         if($row[2]==1)
                             $_SESSION["adm"]=true;                        
                         return $_SESSION["usr"];
