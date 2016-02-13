@@ -21,11 +21,9 @@
                 else
                     include 'Viewer/loginTry.php';
             }
-            else if($arg=="logout"){
-                echo "ciao1";
+            else if($arg=="logout"){                
                 $result=  $this->model->logout();
                 if($result!= "Error")
-                    echo "ciao2";
                     include 'Viewer/loginTry.php';
             }
             else if($arg="register"){

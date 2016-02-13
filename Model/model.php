@@ -36,12 +36,7 @@
                 return "Error";            
         }        
         //gestione logout e terminazione sessione
-        public function logout(){            
-            /*$_SESSION=array();
-            if(isset($_SESSION[session_name()])){
-                setcookie(session_name(),'',time()-3600);
-            }
-            session_destroy();*/
+        public function logout(){        
             $_SESSION=array();
             if(session_id()!="" || isset($_COOKIE[session_name()]))
                 setcookie(session_name (),'',time()-2592000,'/');
