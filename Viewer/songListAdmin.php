@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equip="Content-Type" content="text/html; charset=utf-8">
-        <title>Song List</title>
+        <title>Songs List</title>
     </head>
     <body>
         <?php
@@ -14,18 +14,18 @@
             while($row=$song->fetch_row())
                     echo"<tr><td>$row[0]</td><td>$row[1] $row[2]</td> 
                          <td><button type='submit' id='delete$row[3]' name='delete' value='$row[3]'>Cancella</button></tr>";                           
-            echo "</table><br><br>";
+            echo "</table><br>";
             echo "</form>";
             
             echo "<p>Inserisci nuova canzone</p>";
             echo "<form action='index.php?arg=newSong' method='POST'
                   <label>Titolo Canzone</label>
-                  <input type='text' name='titol' id='titol' required/><br>
+                  <input type='text' name='title' id='title' required='required'/><br>
                   <label>Artista</label>
                   <select name='artist'>";
                   while($row=$artist->fetch_row())
                       echo "<option value='$row[2]'>$row[0] $row[1]</option>";
-            echo "</select><input type='submit' id='confirm' name='confirm' value='Add song'/><br><br><br>";
+            echo "</select><input type='submit' id='confirm' name='confirm' value='Add song'/><br>";
         ?>
     </body>
 </html>

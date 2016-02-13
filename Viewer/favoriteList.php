@@ -1,6 +1,7 @@
 <?php
     echo "Canzoni preferite: ";
-    echo "<table align='center'> <tr><th>Titolo</th><th>Artista</th><th>Preferito di</th></tr>";
+    echo "<table align='center'>";
+    echo "<tr><th>Titolo</th><th>Artista</th><th>Preferito di</th></tr>";
     $songs=array();
     while($row=$result->fetch_row()){
         $songs[]=$row;
@@ -13,7 +14,7 @@
         echo "<select name='song'>";
         foreach($songs as $temp)
             echo"<option value='$temp[4]'>$temp</option>";
-        echo "</select><br><input type='submit' song_id='conferma' title='conferma' value='rimuovi preferito'/>";
+        echo "</select><br><input type='submit' id='conferma' name='conferma' value='rimuovi preferito'/>";
         echo "</form>";
     }
 ?>

@@ -21,6 +21,11 @@
                 else
                     include 'Viewer/loginTry.php';
             }
+            else if($arg=="logout"){
+                $result=  $this->model->logout();
+                if($result!= "Error")
+                    include 'Viewer/loginTry.php';
+            }
             else if($arg="register"){
                 if(isset($_SESSION['logIN']))
                     include 'Viewer/logoutFail.php';
@@ -28,25 +33,19 @@
                     include 'Viewer/register.php';
             }
             else if($arg=="newUser"){
-                $result=$this->model->newUser();
-                
-                if($result=="Insert Error")
+                $result=$this->model->newUser();                
+                if($result=="IError")
                     include 'Viewer/invalidUsername.php';
                 else if($result=="Error")
                     include 'Viewer/error.php';
                 else
                     include "Viewer/registrationDone.php";
             }
-            else if($arg=="logout"){
-                $result=  $this->model->logout();
-                if($result!= "Error")
-                    include 'Viewer/loginTry.php';
-            }
             else if($arg=="songs"){
-                $song=$this->model->songs();
-                if($song=="Errore Login")
+                $songs=$this->model->songs();
+                if($songs=="Login Error")
                     include 'Viewer/loginFail.php';
-                else if($song== "Error")
+                else if($songs== "Error")
                     include 'Viewer/error.php';
                 else{
                     if(isset($_SESSION['adm'])){
@@ -80,7 +79,7 @@
                     include 'Viewer/accessDenied.php';
             }
             else if($arg="favoriteList"){
-                if(isset($_SESSION['usr'])){
+                if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
                     if($result="Error")
                         include 'Viewer/error.php';
@@ -89,7 +88,7 @@
                 }
             }
             else if($arg=="notFavoriteList"){
-                if(isset($_SESSION['usr'])){
+                if(isset($_SESSION['username'])){
                     $usr=$this->model->usersList();
                     $songs=  $this->model->notFavorite();
                     include 'Viewer/newFavorite.php';

@@ -1,3 +1,3 @@
 <?php
-    echo "Si &egrave verificato un errore. Riprovare";
+    echo "Si &egrave; verificato un errore. Riprovare";
 ?>

@@ -4,7 +4,7 @@
           <label>Username</label><input type='text' id='username' name='username' required='required'/><br>
           <label>Password</label><input type='password' id='password' name='password' required='required'/><br>
           <label>Conferma Password</label><input type='password' id='confpwd' name='confpwd' required='required'/><br>
-          <button type='submit' id='conferma' name='conferma' disabled>Conferma</button>
+          <button type='submit' id='confirm' name='confirm' disabled>Conferma</button>
           </form> <div id='allert'></div>";
 ?>
 
@@ -17,13 +17,13 @@ $("#confpwd").keyup(function(){
         $.get("Viewer/unvalid.hmtl",function(data){
             $("#allert").html(data);
         })
-        $("#conferma").prop("disabled",true);
+        $("#confirm").prop("disabled",true);
     }
     else if(pwd!="" && confpwd!=""){
         $.get("Viewer/valid.html", function(data){
             $("#allert").html(data);
         })
-        $("#conferma").prop("disabled",false);
+        $("#confirm").prop("disabled",false);
     }
     else
         $.("#allert").html("");
@@ -35,13 +35,13 @@ $.("#password").keyup(function(){
         $.get("Viewer/unvalid.hmtl",function(data){
             $("#allert").html(data);
         })
-        $("#conferma").prop("disabled",true);
+        $("#confirm").prop("disabled",true);
     }
     else if(pwd!="" && confpwd!=""){
         $.get("Viewer/valid.html", function(data){
             $("#allert").html(data);
         })
-        $("#conferma").prop("disabled",false);
+        $("#confirm").prop("disabled",false);
     }
     else
         $.("#allert").html("");    

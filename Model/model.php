@@ -30,11 +30,9 @@
                         return $_SESSION["username"];
                     }
                 }
-                echo "ciao1";
                 return "Error";
             }
             else
-                echo "ciao2";
                 return "Error";            
         }        
         //gestione logout e terminazione sessione
@@ -46,19 +44,19 @@
         }
         //inserimento nuova utente
         public function newUser(){
-            if(isset($_REQUEST['usr']) && isset($_REQUEST['pwd'])){
+            if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
                 $result=  $this->connectToDB();
                 if(self::$mysqli->errno>0)
                     return "Error";
-                $user=$_REQUEST['usr'];
-                $password=$_REQUEST['pwd'];
+                $user=$_REQUEST['username'];
+                $password=$_REQUEST['password'];
                 
                 self::$mysqli->autocommit(false);
                 $result=  self::$mysqli->query("INSERT INTO users(username,password) VALUES ('$user', '$password');");
                 if(self::$mysqli->errno>0){
                     self::$mysqli->rollback();
                     self::$mysqli->close();
-                    return "Error";
+                    return "IError";
                 }
                 else{
                     $result=self::$mysqli->query("UPDATE users SET password='$password' WHERE username='$user';");
@@ -82,7 +80,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Error";
-            $result=self::$mysqli->query("SELECT username FROM users WHERE id>=1;");
+            $result=self::$mysqli->query("SELECT username FROM users WHERE id>=2;");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
@@ -157,8 +155,8 @@
         }
         //aggiunta ai preferiti
         public function addFavoriteSong(){
-            if(isset($_REQUEST['user']) && isset($_REQUEST['song'])){
-                $user=$_REQUEST['user'];
+            if(isset($_REQUEST['username']) && isset($_REQUEST['song'])){
+                $user=$_REQUEST['username'];
                 $song=$_REQUEST['song'];
                 $this->connectToDB();
                 if(self::$mysqli->errno>0)
@@ -182,7 +180,7 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 else{
-                    self::$mysqli->query("UPDATE songs SET favoriteBy = NULL WHERE song_id='$song';");
+                    self::$mysqli->query("UPDATE songs SET favoriteBy=NULL WHERE song_id='$song';");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else
@@ -197,7 +195,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Login Error";
-            $result= self::$mysql->query("SELECT name, id FROM artists;");
+            $result= self::$mysql->query("SELECT name, artist_id FROM artists;");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
