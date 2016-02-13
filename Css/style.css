@@ -85,6 +85,8 @@ body{
 }
 
 #footer{
+    border-style: solid;
+    border-color:red;
     height: 30px;
     //width:100%;
     text-align: center;

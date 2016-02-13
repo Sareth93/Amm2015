@@ -91,11 +91,11 @@
             $this->connectToDB();           
             if(self::$mysqli->errno>0)
                 return "Login Error";         
-            $result= self::$mysqli->query("SELECT title, songs.song_id, artistName FROM songs, artists WHERE artists.artist_id=songs.artist_id;");
-            /*if(self::$mysqli->errno>0){
+            $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE artists.artist_id=songs.artist_id;");
+            if(self::$mysqli->errno>0){
                 echo 'ciao1';
                 return "Error";}
-            else*/
+            else
                 return $result;
         }
         //aggiunta canzone
@@ -196,7 +196,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Login Error";
-            $result= self::$mysql->query("SELECT name, artist_id FROM artists");
+            $result= self::$mysql->query("SELECT name, artist_id FROM artists;");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
