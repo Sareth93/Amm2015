@@ -26,21 +26,6 @@
                 if($result!= "Error")
                     include 'Viewer/loginTry.php';
             }
-            else if($arg="register"){
-                if(isset($_SESSION['logIN']))
-                    include 'Viewer/logoutFail.php';
-                else
-                    include 'Viewer/register.php';
-            }
-            else if($arg=="newUser"){
-                $result=$this->model->newUser();                
-                if($result=="IError")
-                    include 'Viewer/invalidUsername.php';
-                else if($result=="Error")
-                    include 'Viewer/error.php';
-                else
-                    include "Viewer/registrationDone.php";
-            }
             else if($arg=="songs"){
                 $songs=$this->model->songs();
                 if($songs=="Login Error")
@@ -94,6 +79,13 @@
                     include 'Viewer/newFavorite.php';
                 }
             }
+            else if($arg="addArtist"){
+                $temp=$this->model->addArtist();
+                if($temp=="Error")
+                    include "Viewer/newArtist.php";
+                else
+                    include "Viewer/artistAdded.php";
+            }
             else if($arg=="addFavorite"){
                 $temp=$this->model->addFavoriteSong();
                 if($temp=="Error")
@@ -110,15 +102,22 @@
                 else
                     include 'Viewer/favoriteRemoved.php';
             }
-            else if($arg="addArtist"){
-                $temp=$this->model->addArtist();
-                if($temp=="Error")
-                    include "Viewer/newArtist.php";
+            else if($arg="register"){
+                if(isset($_SESSION['logIN']))
+                    include 'Viewer/logoutFail.php';
                 else
-                    include "Viewer/artistAdded.php";
+                    include 'Viewer/register.php';
             }
-        }
-        
+            else if($arg=="newUser"){
+                $result=$this->model->newUser();                
+                if($result=="IError")
+                    include 'Viewer/invalidUsername.php';
+                else if($result=="Error")
+                    include 'Viewer/error.php';
+                else
+                    include "Viewer/registrationDone.php";
+            }                                                               
+        }        
         public function sidebar(){
             if(isset($_SESSION['logIN'])){
                 if(isset($_SESSION['adm']))
