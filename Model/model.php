@@ -32,9 +32,8 @@
                 }
                 return "Error";
             }
-            else{
-                echo 'ciao2';
-                return "Error";}            
+            else
+                return "Error";            
         }        
         //gestione logout e terminazione sessione
         public function logout(){        
@@ -49,8 +48,9 @@
             if(self::$mysqli->errno>0)
                 return "Login Error";         
             $result= self::$mysqli->query("SELECT title, artistName, songs.song_id FROM songs, artists WHERE artists.artist_id=songs.artist_id;");
-            if(self::$mysqli->errno>0)
-                return "Error";
+            if(self::$mysqli->errno>0){
+                echo 'ciao1';
+                return "Error";}
             else
                 return $result;
         }
