@@ -14,7 +14,8 @@
         echo "<select name='song'>";
         foreach($songs as $item)
             echo"<option value='$item[3]'>$item[0]</option>";
-        echo "</select><br><input type='submit' id='confirm' name='confirm' value='rimuovi preferito'/>";
+        echo "</select><br>";
+        echo "<input type='submit' id='confirm' name='confirm' value='rimuovi preferito'/>";
         echo "</form>";
     }
 ?>

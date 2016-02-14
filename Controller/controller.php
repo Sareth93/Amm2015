@@ -76,10 +76,8 @@
             else if($arg="favoriteList"){
                 if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
-                   if($result=="Error"){
-                        echo "ciaoContr1";
+                   if($result=="Error")
                         include 'Viewer/error.php';
-                    }
                     else
                         include 'Viewer/favoriteList.php';
                 }
