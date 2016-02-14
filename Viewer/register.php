@@ -1,9 +1,9 @@
 <?php
     echo "<p>Registrazione nuovo utente</p>
-          <form id='form' action='index.php?arg=register' method='POST'
-          <label>Username</label><input type='text' id='username' name='username' required='required'/><br>
-          <label>Password</label><input type='password' id='password' name='password' required='required'/><br>
-          <label>Conferma Password</label><input type='password' id='confpwd' name='confpwd' required='required'/><br>
+          <form id='form' action='index.php?arg=register' method='POST'>
+          <label>Username </label><input type='text' id='username' name='username' required='required'/><br>
+          <label>Password </label><input type='password' id='password' name='password' required='required'/><br>
+          <label>Conferma Password </label><input type='password' id='confpwd' name='confpwd' required='required'/><br>
           <button type='submit' id='confirm' name='confirm' disabled>Conferma</button>
           </form> <div id='allert'></div>";
 ?>
