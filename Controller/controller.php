@@ -53,16 +53,12 @@
                     }
                 }
             }
-            else if($arg=="newSong"){
-                if(isset($_SESSION['adm'])){
-                    $result=$this->model->addSong();
-                    if($result!="Error")
-                        include 'Viewer/songAdded.php';                        
-                    else
-                        include 'Viewer/error.php';
-                }                
+            else if($arg=="newSong"){                
+                $result=$this->model->addSong();
+                if($result!="Error")
+                    include 'Viewer/songAdded.php';                        
                 else
-                    include 'Viewer/accessDenied.php';
+                    include 'Viewer/error.php';
             }
             else if($arg=="deleteSong"){
                 if(isset($_SESSION['adm'])){
