@@ -201,7 +201,7 @@
                 }
             }
             else{
-                echo "removeFav1"; 
+                echo "removeFav3"; 
                 return "Error";}
         } 
         //elenco artisti

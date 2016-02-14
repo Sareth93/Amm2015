@@ -9,7 +9,7 @@
     echo "<label>Titolo canzone</label>
           <select name='song'>";
            while (($row=$songs->fetch_row())!=NULL)
-                echo "<option valute='{$row[1]}'>$row[0]</option>";
+                echo "<option valute='{$row[0]}'>$row[0]</option>";
     echo "</select> <br>
           <input type='submit' value='Conferma'>";                                          
 ?>
