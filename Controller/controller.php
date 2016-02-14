@@ -119,7 +119,7 @@
                 else
                     include "Viewer/artistAdded.php";
             }
-            /*else if($arg="register"){
+            else if($arg="register"){
                 if(isset($_SESSION['logIN']))
                     include 'Viewer/logoutFail.php';
                 else
@@ -133,7 +133,7 @@
                     include 'Viewer/error.php';
                 else
                     include "Viewer/registrationDone.php";
-            }*/                                                               
+            }                                                              
         }        
         public function sidebar(){
             if(isset($_SESSION['logIN'])){
