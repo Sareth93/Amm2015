@@ -12,7 +12,8 @@
         echo "<br>Seleziona la canzone che desideri rimuovere dai preferiti<br>";
         echo "<form action='index.php?arg=removeFavorite' method='POST'>";
         echo "<select name='song'>";
-        echo"<option value='$row[3]'>$row[0]</option>";
+        while($row=$result->fetch_row())
+            echo"<option value='$row[3]'>$row[0]</option>";
         echo "</select><br>";
         echo "<input type='submit' id='confirm' name='confirm' value='rimuovi preferito'/>";
         echo "</form>";
