@@ -111,8 +111,8 @@
             }
             else if($arg="addArtist2"){
                 if(isset($_SESSION['adm'])){
-                    $temp=$this->model->addArtist();
-                    if($temp=="Error")
+                    $flag=$this->model->addArtist();
+                    if($flag=="Error")
                         include "Viewer/newArtist.php";
                     else
                         include "Viewer/artistAdded.php";
