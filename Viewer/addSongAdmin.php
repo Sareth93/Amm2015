@@ -6,7 +6,7 @@
           <label>Artista</label><select name='artistName'>";
     //echo "<tr><th>Artista</th></tr>";
     while($row=$artists->fetch_row())
-        echo "<option value='$row[0]'>$row[0]$row[1]</option>";
+        echo "<option value='$row[0]'>$row[1])$row[0]</option>";
     echo "</select><input type='submit' id='confirm' name='confirm' value='Add song'/><br>"        
             
             
