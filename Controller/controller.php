@@ -72,7 +72,8 @@
                 else
                     include 'Viewer/accessDenied.php';
             }
-        }        
+        }  
+      
         public function sidebar(){
             if(isset($_SESSION['logIN'])){
                 if(isset($_SESSION['adm']))

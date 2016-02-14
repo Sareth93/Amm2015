@@ -11,8 +11,7 @@
         }        
         private function connectToDB(){
             @self::$mysqli->connect("localhost", self::$usrRoot, self::$pwdRoot, self::$db);
-        }
-        
+        }        
         //gestione login
         public function login(){
             if(isset($_REQUEST['username'])&& isset($_REQUEST['password'])){
