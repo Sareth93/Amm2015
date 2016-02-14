@@ -47,8 +47,10 @@
                         $artist=$this->model->artistsList();
                         include 'Viewer/songListAdmin.php';
                     }
-                    else
+                    else{
+                        $artist=$this->model->artistsList();
                         include 'Viewer/songList.php';
+                    }
                 }
             }
             else if($arg=="newSong"){
