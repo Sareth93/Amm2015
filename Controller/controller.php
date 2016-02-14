@@ -96,7 +96,7 @@
                 else
                     include 'Viewer/favoriteAdded.php';
             }
-            else if($arg="removeFavorite"){
+           /* else if($arg="removeFavorite"){
                 $result=$this->model->removeFavorite();
                 if($result=="Error"){
                     echo "Errore!";
@@ -104,7 +104,7 @@
                 }
                 else
                     include 'Viewer/favoriteRemoved.php';
-            }
+            }*/
             else if($arg="addArtist"){
                 if(isset($_SESSION['adm'])){
                     $temp=$this->model->addArtist();
