@@ -175,8 +175,9 @@
                     self::$mysqli->query("UPDATE songs SET favoriteBy=NULL WHERE song_id='$song'");
                     if(self::$mysqli->errno>0)
                         return "Error";
-                    else
-                        return "Ok";
+                    else{
+                        echo "poba";
+                        return "Ok";}
                 }
             }
             else 
