@@ -53,10 +53,11 @@
             }
             else if($arg=="newSong"){
                 if(isset($_SESSION['adm'])){
-                    $artists=  $this->model->artistsList();
-                    if($artists!="Error"){
+                    $artists=$this->model->artistsList();
+                    if($artists!="Error"){                        
                         include 'Viewer/addSongAdmin.php';
-                        //include 'Viewer/songAdded.php';
+                        $result=$this->model->addSong();
+                        //include 'Viewer/songAdded.php';                        
                     }
                     else
                         include 'Viewer/error.php';
