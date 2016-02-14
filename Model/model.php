@@ -18,8 +18,10 @@
             if(isset($_REQUEST['username'])&& isset($_REQUEST['password'])){
                 $this->connectToDB();
                 $result=self::$mysqli->query("SELECT username, password, id FROM users");
-                if(self::$mysqli->errno>0)
+                if(self::$mysqli->errno>0){
+                    echo "Ciaologin";
                     return "Error";
+                }
                 else
                     return $result;
             }
@@ -67,22 +69,30 @@
         //elenco utenti
         public function usersList(){
             $this->connectToDB();
-            if(self::$mysqli->errno>0)
+            if(self::$mysqli->errno>0){
+                echo "CiaousersList1";
                 return "Error";
+            }
             $result=self::$mysqli->query("SELECT username FROM users WHERE id>=2");
-            if(self::$mysqli->errno>0)
+            if(self::$mysqli->errno>0){
+                echo "CiaousersList2";
                 return "Error";
+            }
             else
                 return $result;
         }
         //elenco canzoni
         public function songs(){
             $this->connectToDB();           
-            if(self::$mysqli->errno>0)
+            if(self::$mysqli->errno>0){
+                echo "songs1";
                 return "Login Error"; 
+            }
             $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE songs.artist_id=artists.artist_id");
-            if(self::$mysqli->errno>0)
+            if(self::$mysqli->errno>0){
+                echo "songs2";
                 return "Error";
+            }
             else
                 return $result;
         }
@@ -92,12 +102,14 @@
                 $title=$_REQUEST['title'];
                 $artist=$_REQUEST['artist'];
                 $this->connectToDB();
-                if(self::$mysqli->errno>0)
-                    return "Error";
+                if(self::$mysqli->errno>0){
+                    echo "addSong1";
+                    return "Error";}
                 else{
                     self::$mysqli->query("INSERT INTO songs(title,artist_id) VALUES ('$title', '$artist')");
-                    if(self::$mysqli->errno>0)
-                        return "Error";
+                    if(self::$mysqli->errno>0){
+                        echo "addSong2";
+                        return "Error";}
                     else
                         return "Ok";
                 }
@@ -107,13 +119,15 @@
         public function deleteSong(){
             if(isset($_REQUEST['delete'])){
                 $this->connectToDB();
-                if(self::$mysqli->errno>0)
-                    return "Error";
+                if(self::$mysqli->errno>0){
+                    echo "deleteSong1";
+                    return "Error";}
                 else{
                     $song_id=$_REQUEST['delete'];
                     $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id' AND favoriteBy IS NULL");
-                    if(self::$mysqli->errno>0 || self::$mysqli->affected_rows!=1)
-                        return "Error";
+                    if(self::$mysqli->errno>0 || self::$mysqli->affected_rows!=1){
+                        echo "deleteSong1";
+                        return "Error";}
                     else
                         return "Ok";
                 }
@@ -123,12 +137,12 @@
         public function favorites(){
             $this->connectToDB();
             if(self::$mysqli->errno>0){
-                echo"ciaofavorites1";
+                echo"favorites1";
                 return "Error";}
             $result=self::$mysqli->query("SELECT title, artistName, users.username, song_id FROM songs, artists, users
                                           WHERE artists.artist_id=songs.artist_id AND id=favoriteBy");
             if(self::$mysqli->errno>0){
-                echo"ciaofavorites2";
+                echo"favorites2";
                 return "Error";}
             else
                 return $result;                   
@@ -136,12 +150,14 @@
         //elenco canzoni non presenti tra i preferiti dell'utente
         public function notFavorite(){
             $this->connectToDB();
-            if(self::$mysqli->errno>0)
-                return "Error";
+            if(self::$mysqli->errno>0){
+                echo "notFavorite1";
+                return "Error";}
             $result=self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artist
                                           WHERE artist.artist_id=songs.artist_id AND favoriteBy IS NULL");
-            if(self::$mysqli->errno>0)
-                return "Error";
+            if(self::$mysqli->errno>0){
+                echo "notFavorite2";
+                return "Error";}
             else
                 return $result;                
         }      
@@ -151,37 +167,42 @@
                 $user=$_REQUEST['username'];
                 $song=$_REQUEST['song'];
                 $this->connectToDB();
-                if(self::$mysqli->errno>0)
-                    return "Error";
+                if(self::$mysqli->errno>0){
+                    echo "addFavSong1";
+                    return "Error";}
                 else{
                     self::$mysqli->query("UPDATE songs SET favoriteBy=(SELECT id FROM users WHERE users.username='$user') WHERE song_id='$song' AND favoriteBy IS NULL");
-                    if(self::$mysqli->errno>0)
-                        return "Error";
+                    if(self::$mysqli->errno>0){
+                        echo "addFavSong2";
+                        return "Error";}
                     else
                         return "Ok";
                 }
             }
-            else
-                return "Error";
+            else{
+                echo "addFavSong3";
+                return "Error";}
         }
         //rimuove preferito
         public function removeFavorite(){
             if(isset($_REQUEST['song'])){
                 $song=$_REQUEST['song'];
                 $this->connectToDB();
-                if(self::$mysqli->errno>0)
-                    return "Error";
+                if(self::$mysqli->errno>0){
+                    echo "removeFav1";
+                    return "Error";}
                 else{
                     self::$mysqli->query("UPDATE songs SET favoriteBy=NULL WHERE song_id='$song'");
-                    if(self::$mysqli->errno>0)
-                        return "Error";
-                    else{
-                        echo "poba";
-                        return "Ok";}
+                    if(self::$mysqli->errno>0){
+                        echo "removeFav2";
+                        return "Error";}
+                    else
+                        return "Ok";
                 }
             }
-            else 
-                return "Error";
+            else{
+                echo "removeFav1"; 
+                return "Error";}
         } 
         //elenco artisti
         public function artistsList(){
@@ -200,12 +221,12 @@
                 $artistName=$_REQUEST['artistName'];
                 $this->connectToDB();
                 if(self::$mysqli->errno>0){
-                    echo "ciao1";
+                    echo "addArt1";
                     return "Error";}
                 else{
                     self::$mysqli->query("INSER INTO artists(artistName) VALUES ('$artistName')");
                     if(self::$mysqli->errno>0){
-                        echo "ciao2";
+                        echo "addArt2";
                         return "Error";}
                     else
                         return "Ok";

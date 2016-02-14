@@ -40,7 +40,7 @@
                 $songs=$this->model->songs();
                 if($songs=="Login Error")
                     include 'Viewer/loginFail.php';
-                else if($songs== "Error")
+                else if($songs=="Error")
                     include 'Viewer/error.php';
                 else{
                     if(isset($_SESSION['adm'])){
@@ -76,11 +76,11 @@
             else if($arg="favoriteList"){
                 if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
-                   /* if($result="Error"){
+                   if($result="Error"){
                         echo "ciaoContr1";
                         include 'Viewer/error.php';
                     }
-                    else*/
+                    else
                         include 'Viewer/favoriteList.php';
                 }
             }
