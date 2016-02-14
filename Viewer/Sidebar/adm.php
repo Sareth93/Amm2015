@@ -4,6 +4,5 @@
     echo $user;
     echo "/logout </a></div>";
     echo "<div id='tab'><a href='index.php?arg=songs'>Lista Canzoni</a></div>";
-    echo "<div id='tab'><a href='index.php?arg=addArtist2'>Aggiungi un autore</a></div>";
 ?>
 
