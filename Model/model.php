@@ -20,20 +20,11 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 $result=self::$mysqli->query("SELECT username, password, id FROM users");
-                while($row=$result->fetch_row()){
-                    if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
-                        $_SESSION["logIN"]=true;
-                        $_SESSION["username"]=$_REQUEST['username'];
-                        $_SESSION["password"]=$_REQUEST['password'];                        
-                        if($row[2]==1)
-                            $_SESSION["adm"]=true;                        
-                        return $_SESSION["username"];
-                    }
-                }
-                return "Error";
+                if(self::$mysqli->errno>0)
+                    return "Error";
+                else
+                    return $result;
             }
-            else
-                return "Error";            
         }        
         //gestione logout e terminazione sessione
         public function logout(){        
@@ -91,8 +82,7 @@
             $this->connectToDB();           
             if(self::$mysqli->errno>0)
                 return "Login Error"; 
-            $query="SELECT title, song_id, artistName FROM songs, artists WHERE artists.artist_id=songs.artist_id";
-            $result= self::$mysqli->query($query);
+            $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE artists.artist_id=songs.artist_id");
             if(self::$mysqli->errno>0){
                 echo 'ciao1';
                 return "Error";}
