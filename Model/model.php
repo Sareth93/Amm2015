@@ -18,20 +18,13 @@
             if(isset($_REQUEST['username'])&& isset($_REQUEST['password'])){
                 $this->connectToDB();
                 $result=self::$mysqli->query("SELECT username, password, id FROM users");
-                while($row=$result->fetch_row()){
-                    if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
-                        $_SESSION["logIN"]=true;
-                        $_SESSION["username"]=$_REQUEST['username'];
-                        $_SESSION["password"]=$_REQUEST['password'];                        
-                        if($row[2]==1)
-                            $_SESSION["adm"]=true;                        
-                        return $_SESSION["username"];
-                    }
+                if(self::$mysqli->errno>0){
+                    echo "Ciaologin";
+                    return "Error";
                 }
-                return "Error";
+                else
+                    return $result;
             }
-            else
-                return $result;            
         }        
         //gestione logout e terminazione sessione
         public function logout(){        
