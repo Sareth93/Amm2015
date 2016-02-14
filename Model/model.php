@@ -138,7 +138,8 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Error";
-            $result=self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artist WHERE artist.artist_id=songs.artist_id AND favoriteBy IS NULL");
+            $result=self::$mysqli->query("SELECT title, song_id, artistName, song_id FROM songs, artist
+                                          WHERE artist.artist_id=songs.artist_id AND favoriteBy IS NULL");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
