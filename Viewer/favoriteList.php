@@ -13,7 +13,7 @@
         echo "<form action='index.php?arg=removeFavorite' method='POST'>";
         echo "<select name='song'>";
         foreach($songs as $temp)
-            echo"<option value='$temp[3]'>$temp</option>";
+            echo"<option value='$temp[2]'>$temp</option>";
         echo "</select><br><input type='submit' id='confirm' name='confirm' value='rimuovi preferito'/>";
         echo "</form>";
     }
