@@ -134,7 +134,7 @@
             }
         }
         //elenco canzoni presenti tra i preferiti dell'utente
-        public function favorites(){
+       /* public function favorites(){
             $this->connectToDB();
             if(self::$mysqli->errno>0){
                 echo"favorites1";
@@ -146,7 +146,7 @@
                 return "Error";}
             else
                 return $result;                   
-        }
+        }*/
         //elenco canzoni non presenti tra i preferiti dell'utente
         public function notFavorite(){
             $this->connectToDB();
