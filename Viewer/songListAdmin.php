@@ -16,16 +16,6 @@
                          <td><button type='submit' id='delete$row[1]' name='delete' value='$row[1]'>Cancella</button></tr>";                           
             echo "</table><br>";
             echo "</form>";
-            
-            echo "<p>Inserisci nuova canzone</p>";
-            echo "<form action='index.php?arg=newSong' method='POST'>
-                  <label>Titolo Canzone</label>
-                  <input type='text' name='title' id='title' required='required'/><br>
-                  <label>Artista</label>
-                  <select name='artist'>";
-                while($row=$artist->fetch_row())
-                    echo "<option value='$row[1]'>$row[0]</option>";
-            echo "</select><input type='submit' id='confirm' name='confirm' value='Add song'/><br>";
         ?>
     </body>
 </html>
