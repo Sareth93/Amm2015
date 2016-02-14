@@ -27,6 +27,7 @@
                             return $_SESSION["username"];
                         }
                     }
+                    include 'Viewer/loginSucc.php';
                 }
                 else
                     include 'Viewer/loginTry.php';
