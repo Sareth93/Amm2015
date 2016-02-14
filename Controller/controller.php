@@ -73,7 +73,7 @@
                 else
                     include 'Viewer/accessDenied.php';
             }
-            else if($arg="favoriteList"){
+           /* else if($arg="favoriteList"){
                 if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
                    if($result=="Error")
@@ -81,7 +81,7 @@
                     else
                         include 'Viewer/favoriteList.php';
                 }
-            }
+            }*/
             else if($arg=="notFavoriteList"){
                 if(isset($_SESSION['username'])){
                     $usr=$this->model->usersList();
