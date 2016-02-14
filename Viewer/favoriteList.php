@@ -5,7 +5,7 @@
     $songs=array();
     while($row=$result->fetch_row()){
         $songs[]=$row;
-        echo "<tr><td>$row[0]</td><td>$row[1]</td></tr>";
+        echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td></tr>";
     }
     echo "</table>";
     if(count($songs)>0){
