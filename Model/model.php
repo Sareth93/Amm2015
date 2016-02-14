@@ -127,10 +127,10 @@
                 return "Error";}
             $result=self::$mysqli->query("SELECT title, artistName, users.username, song_id FROM songs, artists, users
                                           WHERE artists.artist_id=songs.artist_id AND id=favoriteBy");
-            /*if(self::$mysqli->errno>0){
+            if(self::$mysqli->errno>0){
                 echo"ciaofavorites2";
                 return "Error";}
-            else*/
+            else
                 return $result;                   
         }
         //elenco canzoni non presenti tra i preferiti dell'utente
