@@ -105,10 +105,10 @@
                 else
                     include 'Viewer/favoriteRemoved.php';
             }
-            else if($arg="addArtist1"){
+            /*else if($arg="addArtist1"){
                 if(isset($_SESSION['adm']))
                     include 'Viewer/newArtist.php';
-            }
+            }*/
             else if($arg="addArtist2"){
                 if(isset($_SESSION['adm'])){
                     $temp=$this->model->addArtist();
@@ -117,22 +117,7 @@
                     else
                         include "Viewer/artistAdded.php";
                 }
-            }
-            /*else if($arg="register"){
-                if(isset($_SESSION['logIN']))
-                    include 'Viewer/logoutFail.php';
-                else
-                    include 'Viewer/register.php';
-            }
-            else if($arg=="newUser"){
-                $result=$this->model->newUser();                
-                if($result=="IError")
-                    include 'Viewer/invalidUsername.php';
-                else if($result=="Error")
-                    include 'Viewer/error.php';
-                else
-                    include "Viewer/registrationDone.php";
-            }*/                                                               
+            }                                                             
         }        
         public function sidebar(){
             if(isset($_SESSION['logIN'])){
