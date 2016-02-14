@@ -81,7 +81,7 @@
                         include 'Viewer/error.php';
                     }
                     else*/
-                        include 'Viewer/favoritesList.php';
+                        include 'Viewer/favoriteList.php';
                 }
             }
             else if($arg=="notFavoriteList"){
