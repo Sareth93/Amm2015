@@ -30,7 +30,7 @@ body{
     background-color: white;
     float:right;
     width:84.53%;
-    height:480px;
+    height:600px;
     overflow: scroll;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -47,7 +47,7 @@ body{
     float:right;
     width:15%;
     color:red;
-    height: 480px;
+    height: 600px;
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
