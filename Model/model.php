@@ -96,38 +96,6 @@
             else*/
                 return $result;
         }
-        public function newUser(){
-            if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
-                $result=  $this->connectToDB();
-                if(self::$mysqli->errno>0)
-                    return "Error";
-                $user=$_REQUEST['username'];
-                $password=$_REQUEST['password'];
-                
-                self::$mysqli->autocommit(false);
-                $result=  self::$mysqli->query("INSERT INTO users(username,password) VALUES ('$user', '$password')");
-                if(self::$mysqli->errno>0){
-                    self::$mysqli->rollback();
-                    self::$mysqli->close();
-                    return "IError";
-                }
-                else{
-                    $result=self::$mysqli->query("UPDATE users SET password='$password' WHERE username='$user'");
-                    if(self::$mysqli->errno>0){
-                    self::$mysqli->rollback();
-                    self::$mysqli->close();
-                    return "Error";    
-                    }
-                    else{
-                        self::$mysqli->commit();
-                        self::$mysqli->autocommit(true);
-                        return "Ok";
-                    }
-                }                
-            }
-            else
-                return "Error";
-        }
     }
 ?>
 
