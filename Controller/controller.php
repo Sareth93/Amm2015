@@ -53,6 +53,7 @@
             }
             else if($arg=="newSong"){
                 if(isset($_SESSION['adm'])){
+                    include 'Viewer/addSongAdmin.php';
                     $result=$this->model->addSong();
                     if($result!="Error")
                         include 'Viewer/songAdded.php';

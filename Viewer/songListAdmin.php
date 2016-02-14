@@ -12,10 +12,20 @@
             echo "<table align='center'";
             echo "<tr><th>Titolo</th><th>Autore</th></tr>";
             while($row=$songs->fetch_row())
-                    echo"<tr><td>$row[0]</td><td>$row[1]</td>
-                         <td><button type='submit' id='delete$row[1]' name='delete' value='$row[1]'>Cancella</button></tr>";                           
+                    echo"<tr><td>$row[0]</td><td>$row[1]$row[2]</td>
+                         <td><button type='submit' id='delete$row[3]' name='delete' value='$row[3]'>Cancella</button></tr>";                           
             echo "</table><br>";
             echo "</form>";
+                        
+            echo "<p>Inserisci nuova canzone</p>";
+            echo "<form action='index.php?arg=newSong' method='POST'>
+                  <label>Titolo Canzone</label>
+                  <input type='text' name='title' id='title' required='required'/><br>
+                  <label>Artista</label>
+                  <select name='artist'>";
+            while($row=$artist->fetch_row())
+                echo "<option value='$row[2]'>$row[0]$row[1]</option>";
+            echo "</select><input type='submit' id='confirm' name='confirm' value='Add song'/><br>";  
         ?>
     </body>
 </html>
