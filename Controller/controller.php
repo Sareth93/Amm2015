@@ -34,7 +34,7 @@
                     include 'Viewer/error.php';
                 else{
                     if(isset($_SESSION['adm'])){
-                        $artist=$this->model->artists();
+                        $artist=$this->model->artistsList();
                         include 'Viewer/songListAdmin.php';
                     }
                     else
