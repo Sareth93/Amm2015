@@ -186,6 +186,7 @@
         //rimuove preferito
         public function removeFavorite(){
             if(isset($_REQUEST['song'])){
+                echo "remFav0";
                 $song=$_REQUEST['song'];
                 $this->connectToDB();
                 if(self::$mysqli->errno>0){
