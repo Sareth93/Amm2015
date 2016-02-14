@@ -88,9 +88,9 @@
         }
         //aggiunta canzone
         public function addSong(){
-            if(isset($_REQUEST['title']) && isset($_REQUEST['artistName'])){
+            if(isset($_REQUEST['title']) && isset($_REQUEST['artist'])){
                 $title=$_REQUEST['title'];
-                $artist=$_REQUEST['artistName'];
+                $artist=$_REQUEST['artist'];
                 $this->connectToDB();
                 if(self::$mysqli->errno>0)
                     return "Error";
