@@ -32,7 +32,7 @@
             session_destroy();              
         }
         //inserimento nuova utente
-        public function newUser(){
+        /*public function newUser(){
             if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
                 $result=  $this->connectToDB();
                 if(self::$mysqli->errno>0)
@@ -63,7 +63,7 @@
             }
             else
                 return "Error";
-        }
+        }*/
         //elenco utenti
         public function usersList(){
             $this->connectToDB();

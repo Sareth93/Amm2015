@@ -74,7 +74,7 @@
                     include 'Viewer/accessDenied.php';
             }
             else if($arg="favoriteList"){
-                if(isset($_SESSION['username'])){
+                if(isset($_SESSION['usr'])){
                     $result=$this->model->favorites();
                     if($result="Error"){
                         echo "ciaoContr1";
@@ -107,19 +107,14 @@
                 else
                     include 'Viewer/favoriteRemoved.php';
             }
-            else if($arg="addArtist1"){
-                if(isset($_SESSION['adm'])){
-                    include "Viewer/newArtist.php";
-                }
-            }
-            else if($arg="addArtist2"){
+            else if($arg="addArtist"){
                 $temp=$this->model->addArtist();
                 if($temp=="Error")
                     include "Viewer/newArtist.php";
                 else
                     include "Viewer/artistAdded.php";
             }
-            else if($arg="register"){
+            /*else if($arg="register"){
                 if(isset($_SESSION['logIN']))
                     include 'Viewer/logoutFail.php';
                 else
@@ -133,7 +128,7 @@
                     include 'Viewer/error.php';
                 else
                     include "Viewer/registrationDone.php";
-            }                                                              
+            }*/                                                               
         }        
         public function sidebar(){
             if(isset($_SESSION['logIN'])){
