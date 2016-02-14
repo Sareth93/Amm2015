@@ -125,7 +125,7 @@
             if(self::$mysqli->errno>0){
                 echo"ciaofavorites1";
                 return "Error";}
-            $result=self::$mysqli->query("SELECT title, artistName, users.username FROM songs, artists, users
+            $result=self::$mysqli->query("SELECT title, artistName, users.username, song_id FROM songs, artists, users
                                           WHERE artists.artist_id=songs.artist_id AND id=favoriteBy");
             if(self::$mysqli->errno>0){
                 echo"ciaofavorites2";
@@ -138,7 +138,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Error";
-            $result=self::$mysqli->query("SELECT title, song_id, artistName, song_id FROM songs, artist
+            $result=self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artist
                                           WHERE artist.artist_id=songs.artist_id AND favoriteBy IS NULL");
             if(self::$mysqli->errno>0)
                 return "Error";
