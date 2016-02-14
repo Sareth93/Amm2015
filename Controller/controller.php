@@ -73,7 +73,7 @@
                 else
                     include 'Viewer/accessDenied.php';
             }
-           /* else if($arg="favoriteList"){
+            else if($arg="favoriteList"){
                 if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
                    if($result=="Error")
@@ -81,7 +81,7 @@
                     else
                         include 'Viewer/favoriteList.php';
                 }
-            }*/
+            }
             else if($arg=="notFavoriteList"){
                 if(isset($_SESSION['username'])){
                     $usr=$this->model->usersList();
@@ -96,7 +96,7 @@
                 else
                     include 'Viewer/favoriteAdded.php';
             }
-           /* else if($arg="removeFavorite"){
+            else if($arg="removeFavorite"){
                 $result=$this->model->removeFavorite();
                 if($result=="Error"){
                     echo "Errore!";
@@ -104,15 +104,15 @@
                 }
                 else
                     include 'Viewer/favoriteRemoved.php';
-            }*/
+            }
             else if($arg="addArtist1"){
                 if(isset($_SESSION['adm']))
                     include 'Viewer/newArtist.php';
             }
             else if($arg="addArtist2"){
                 if(isset($_SESSION['adm'])){
-                    $flag=$this->model->addArtist();
-                    if($flag=="Error")
+                    $temp=$this->model->addArtist();
+                    if($temp=="Error")
                         include "Viewer/newArtist.php";
                     else
                         include "Viewer/artistAdded.php";
