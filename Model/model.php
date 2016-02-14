@@ -125,7 +125,7 @@
             if(self::$mysqli->errno>0){
                 echo"ciaofavorites1";
                 return "Error";}
-            $result=self::$mysqli->query("SELECT title, artistName, users.username, songs.songs_id FROM songs, artists, users
+            $result=self::$mysqli->query("SELECT title, artistName, users.username FROM songs, artists, users
                                           WHERE artists.artist_id=songs.artist_id AND id=favoriteBy");
             if(self::$mysqli->errno>0){
                 echo"ciaofavorites2";
