@@ -126,10 +126,10 @@
                 echo"ciaofavorites1";
                 return "Error";}
             $result=self::$mysqli->query("SELECT title FROM songs");
-            if(self::$mysqli->errno>0){
+            /*if(self::$mysqli->errno>0){
                 echo"ciaofavorites2";
                 return "Error";}
-            else
+            else*/
                 return $result;                   
         }
         //elenco canzoni non presenti tra i preferiti dell'utente
