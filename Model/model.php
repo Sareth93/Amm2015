@@ -80,7 +80,7 @@
             $this->connectToDB();           
             if(self::$mysqli->errno>0)
                 return "Login Error"; 
-            $result= self::$mysqli->query("SELECT title, song_id FROM songs");
+            $result= self::$mysqli->query("SELECT artistName, artist_id FROM artists");
             if(self::$mysqli->errno>0){
                 echo 'ciao1';
                 return "Error";}
