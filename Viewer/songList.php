@@ -7,6 +7,7 @@
     </head>
     <body>
         <?php
+            echo "<form action='index.php?arg=deleteSong' method='POST'>";
             echo "Elenco Canzoni: ";
             echo "<table align='center'";
             echo "<tr><th>Titolo</th><th>Artista</th></tr>";
