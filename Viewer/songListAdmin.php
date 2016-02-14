@@ -10,7 +10,7 @@
             echo "<form action='index.php?arg=deleteSong' method='POST'>";
             echo "Elenco canzoni";
             echo "<table align='center'";
-            echo "<tr><th>Artista</th><th>id</th></tr>";
+            echo "<tr><th>Titolo</th><th>id</th></tr>";
             while($row=$songs->fetch_row())
                     echo"<tr><td>$row[0]</td><td>$row[1]</td> 
                          <td><button type='submit' id='delete$row[2]' name='delete' value='$row[2]'>Cancella</button></tr>";                           
