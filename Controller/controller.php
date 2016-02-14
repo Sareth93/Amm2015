@@ -16,18 +16,8 @@
                 include 'Viewer/loginSucc.php';
             else if($arg=="login"){
                 $result=$this->model->login();
-                if($result != "Error"){
-                    while($row=$result->fetch_row()){
-                        if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
-                            $_SESSION["logIN"]=true;
-                            $_SESSION["username"]=$_REQUEST['username'];
-                            $_SESSION["password"]=$_REQUEST['password'];                        
-                            if($row[2]==1)
-                                $_SESSION["adm"]=true;                        
-                            return $_SESSION["username"];
-                        }
-                    }
-                }
+                if($result!="Error")
+                    include 'Viewer/loginSucc';
                 else
                     include 'Viewer/loginTry.php';
             }
