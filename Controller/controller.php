@@ -56,7 +56,7 @@
                     $artist=  $this->model->artistsList();
                     if($artist!="Error"){
                         include 'Viewer/addSongAdmin';
-                        include 'Viewer/songAdded.php';
+                        //include 'Viewer/songAdded.php';
                     }
                     else
                         include 'Viewer/error.php';
