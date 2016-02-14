@@ -126,7 +126,7 @@
                 echo"ciaofavorites1";
                 return "Error";}
             $result=self::$mysqli->query("SELECT artistName FROM artists
-                                          WHERE artists.artist_id=songs.artist_id AND users.id=songs.favoriteBy");
+                                          ");
             if(self::$mysqli->errno>0){
                 echo"ciaofavorites2";
                 return "Error";}
