@@ -42,6 +42,10 @@ body{
     border-width: 2px;
 }
 
+th, td {
+    border: 2px solid deepskyblue;
+}
+
 #sidebar{
     background-color: white;
     float:right;
@@ -93,10 +97,7 @@ body{
     background-color: blue;
 }
 
-th, td {
-    border: 2px solid deepskyblue;
-    display: inline-block;
-}
+
 
 
 
