@@ -76,18 +76,17 @@ body{
 }
 
 #clear{
-    height: 2px;
+    height: 5px;
     text-align: center;
     display: block;
-    background-color: blue;
+    background-color: deepskyblue;
     clear: left;
+    display: inline-block;
 
 }
 
 #footer{
-    border-style: solid;
-    border-color:red;
-    height: 100%;
+    height: 20px;
     width:100%;
     text-align: center;
     display: inline-block;
