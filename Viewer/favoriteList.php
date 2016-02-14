@@ -5,16 +5,16 @@
     $songs=array();
     while($row=$result->fetch_row()){
         $songs[]=$row;
-        echo "<tr><td>$row[0]</td><";/*td>$row[1]</td></tr>";*/
+        echo "<tr><td>$row[0]</td><td>$row[1]</td></tr>";
     }
     echo "</table>";
-   /*if(count($songs)>0){
+    if(count($songs)>0){
         echo "<br>Seleziona la canzone che desideri rimuovere dai preferiti<br>";
         echo "<form action='index.php?arg=removeFavorite' method='POST'>";
         echo "<select name='song'>";
         foreach($songs as $temp)
             echo"<option value='$temp[4]'>$temp</option>";
-        echo "</select><br><input type='submit' id='conferma' name='conferma' value='rimuovi preferito'/>";
+        echo "</select><br><input type='submit' id='confirm' name='confirm' value='rimuovi preferito'/>";
         echo "</form>";
-    }*/
+    }
 ?>
