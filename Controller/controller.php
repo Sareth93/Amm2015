@@ -61,11 +61,15 @@
                     include 'Viewer/error.php';
             }
             else if($arg=="deleteSong"){
-                $result=  $this->model->deleteSong();
-                if($result != "Error")
-                    include "Viewer/songDeleted.php";
+                if(isset($_SESSION['adm'])){
+                    $result=  $this->model->deleteSong();
+                    if($result != "Error")
+                        include "Viewer/songDeleted.php";
+                    else
+                        include "Viewer/error.php";
+                }
                 else
-                    include "Viewer/error.php";                
+                    include 'Viewer/accessDenied.php';
             }                                                                        
         }        
         public function sidebar(){

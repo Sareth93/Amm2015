@@ -6,14 +6,13 @@
         <title>Song List</title>
     </head>
     <body>
-        <?php
-            echo "<form action='index.php?arg=deleteSong' method='POST'>";
+        <?php            
             echo "Elenco Canzoni: ";
             echo "<table align='center'";
             echo "<tr><th>Titolo</th><th>Artista</th></tr>";
             while($row=$songs->fetch_row())
                     echo"<tr><td>$row[0]</td><td>$row[2]</td> </tr>";
-            echo"</table>";
+            echo"</table><br>";
             
             echo "<p>Inserisci una nuova canzone</p>";
             echo "<form action='index.php?arg=newSong' method='POST'>
