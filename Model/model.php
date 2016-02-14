@@ -122,12 +122,14 @@
         //elenco canzoni presenti tra i preferiti dell'utente
         public function favorites(){
             $this->connectToDB();
-            if(self::$mysqli->errno>0)
-                return "Error";
+            if(self::$mysqli->errno>0){
+                echo"ciaofavorites1";
+                return "Error";}
             $result=self::$mysqli->query("SELECT title, artistName FROM songs, artists
                                           WHERE artists.artist_id=songs.artist_id AND users.id=songs.favoriteBy");
-            if(self::$mysqli->errno>0)
-                return "Error";
+            if(self::$mysqli->errno>0){
+                echo"ciaofavorites2";
+                return "Error";}
             else
                 return $result;                   
         }
