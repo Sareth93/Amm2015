@@ -106,6 +106,7 @@
                     include 'Viewer/favoriteRemoved.php';
             }
             else if($arg="addArtist"){
+                echo "ola";
                 $temp=$this->model->addArtist();
                 if($temp=="Error")
                     include "Viewer/newArtist.php";
