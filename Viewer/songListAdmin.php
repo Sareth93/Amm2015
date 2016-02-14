@@ -17,13 +17,13 @@
             echo "</table><br>";
             echo "</form>";
             
-            echo "<p>Inserisci nuova canzone</p>";
+            echo "<p>Inserisci una nuova canzone</p>";
             echo "<form action='index.php?arg=newSong' method='POST'>
                   <label>Titolo Canzone</label>
                   <input type='text' name='title' id='title' required='required'/><br>
                   <label>Artista</label>
                   <select name='artistName'>";
-            while($row=$artistName->fetch_row())
+            while($row=$artist->fetch_row())
                 echo "<option value='$row[0]'>$row[0]</option>";
             echo "</select><input type='submit' id='confirm' name='confirm' value='Add song'/><br>"; 
         ?>
