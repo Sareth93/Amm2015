@@ -99,7 +99,7 @@
                     include 'Viewer/favoriteAdded.php';
             }
             else if($arg="removeFavorite"){
-                $result=$temp->model->removeFavorite();
+                $result=$this->model->removeFavorite();
                 if($result=="Error"){
                     echo "Errore!";
                     include 'Viewer/favoriteList.php';
@@ -108,7 +108,6 @@
                     include 'Viewer/favoriteRemoved.php';
             }
             else if($arg="addArtist"){
-                echo "ola";
                 $temp=$this->model->addArtist();
                 if($temp=="Error")
                     include "Viewer/newArtist.php";
