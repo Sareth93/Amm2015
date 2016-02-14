@@ -1,4 +1,5 @@
 function time(){
+
     var date=new Date();
     var hour=date.getHours();
     var min=date.getMinutes();
@@ -14,5 +15,6 @@ function time(){
     var t=hour+":"+min+":"+sec;
     document.getElementById("time").innerHTML=t;
     setTimeout('time();','1000');
+
 }
 
