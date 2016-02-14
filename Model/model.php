@@ -185,9 +185,9 @@
             if(self::$mysqli->errno>0)
                 return "Login Error";
             $result= self::$mysqli->query("SELECT name, artist_id FROM artists");
-            if(self::$mysqli->errno>0)
+            /*if(self::$mysqli->errno>0)
                 return "Error";
-            else
+            else*/
                 return $result;
         }
         //aggiunta artista
