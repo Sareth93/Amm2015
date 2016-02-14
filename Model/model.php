@@ -184,7 +184,7 @@
                 return "Error";}
         }
         //rimuove preferito
-        public function removeFavorite(){
+       /* public function removeFavorite(){
             if(isset($_REQUEST['song'])){
                 $song=$_REQUEST['song'];
                 $this->connectToDB();
@@ -203,7 +203,7 @@
             else{
                 echo "removeFav3"; 
                 return "Error";}
-        } 
+        } */
         //elenco artisti
         public function artistsList(){
             $this->connectToDB();
