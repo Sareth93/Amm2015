@@ -11,7 +11,7 @@
             echo "<table align='center'";
             echo "<tr><th>Titolo</th><th>Artista</th></tr>";
             while($row=$songs->fetch_row())
-                    echo"<tr><td>$row[0]</td><td>$row[1]</td> </tr>";
+                    echo"<tr><td>$row[0]</td><td>$row[2]</td> </tr>";
             echo"</table>";
         ?>
     </body>
