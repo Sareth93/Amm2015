@@ -95,7 +95,7 @@ body{
 
 th, td {
     border: 2px solid deepskyblue;
-    display: inline-table;
+    display: inline-block;
 }
 
 
