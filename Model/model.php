@@ -81,9 +81,8 @@
             if(self::$mysqli->errno>0)
                 return "Login Error"; 
             $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE songs.artist_id=artists.artist_id");
-            if(self::$mysqli->errno>0){
-                echo 'ciao1';
-                return "Error";}
+            if(self::$mysqli->errno>0)
+                return "Error";
             else
                 return $result;
         }
@@ -197,6 +196,7 @@
                 $artistName=$_REQUEST['artistName'];
                 $this->connectToDB();
                 if(self::$mysqli->errno>0)
+                    echo "ciao1";
                     return "Error";
                 else{
                     self::$mysqli->query("INSER INTO artists(artistName) VALUES ('$artistName')");
