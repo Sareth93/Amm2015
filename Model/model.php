@@ -195,9 +195,9 @@
             if(isset($_REQUEST['artistName'])){
                 $artistName=$_REQUEST['artistName'];
                 $this->connectToDB();
-                if(self::$mysqli->errno>0)
+                if(self::$mysqli->errno>0){
                     echo "ciao1";
-                    return "Error";
+                return "Error";}
                 else{
                     self::$mysqli->query("INSER INTO artists(artistName) VALUES ('$artistName')");
                     if(self::$mysqli->errno>0)
