@@ -55,7 +55,7 @@
                 if(isset($_SESSION['adm'])){
                     $artist=  $this->model->artistsList();
                     if($artist!="Error"){
-                        include 'Viewer/addSongAdmin';
+                        include 'Viewer/addSongAdmin.php';
                         //include 'Viewer/songAdded.php';
                     }
                     else
