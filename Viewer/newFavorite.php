@@ -1,7 +1,7 @@
 <?php
     echo "<p>Aggiungi ai preferiti</p>";
     echo "<div clas='error'></div>";
-    echo "<form action='index.php?arg=addFavorite' method='POST'>
+    echo "<form action='index.php?arg=addFavoriteSong' method='POST'>
           <label>Nome Utente</label>
           <select name='username'>";
            while(($row=$username->fetch_row())!=NULL)
