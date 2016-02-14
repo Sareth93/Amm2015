@@ -134,7 +134,7 @@
             }
         }
         //elenco canzoni presenti tra i preferiti dell'utente
-       /* public function favorites(){
+        public function favorites(){
             $this->connectToDB();
             if(self::$mysqli->errno>0){
                 echo"favorites1";
@@ -146,7 +146,7 @@
                 return "Error";}
             else
                 return $result;                   
-        }*/
+        }
         //elenco canzoni non presenti tra i preferiti dell'utente
         public function notFavorite(){
             $this->connectToDB();
@@ -184,7 +184,7 @@
                 return "Error";}
         }
         //rimuove preferito
-       /* public function removeFavorite(){
+        public function removeFavorite(){
             if(isset($_REQUEST['song'])){
                 $song=$_REQUEST['song'];
                 $this->connectToDB();
@@ -203,7 +203,7 @@
             else{
                 echo "removeFav3"; 
                 return "Error";}
-        } */
+        } 
         //elenco artisti
         public function artistsList(){
             $this->connectToDB();
