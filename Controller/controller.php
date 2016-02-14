@@ -73,20 +73,7 @@
                 else
                     include 'Viewer/accessDenied.php';
             }
-            else if($arg="addArtist1"){
-                if(isset($_SESSION['adm']))
-                    include 'Viewer/newArtist.php';
-            }
-            else if($arg="addArtist2"){
-                if(isset($_SESSION['adm'])){
-                    $temp=$this->model->addArtist();
-                    if($temp=="Error")
-                        include "Viewer/newArtist.php";
-                    else
-                        include "Viewer/artistAdded.php";
-                }
-            }
-                        else if($arg="favoriteList"){
+            else if($arg="favoriteList"){
                 if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
                    if($result=="Error")
@@ -117,6 +104,19 @@
                 }
                 else
                     include 'Viewer/favoriteRemoved.php';
+            }
+            else if($arg="addArtist1"){
+                if(isset($_SESSION['adm']))
+                    include 'Viewer/newArtist.php';
+            }
+            else if($arg="addArtist2"){
+                if(isset($_SESSION['adm'])){
+                    $temp=$this->model->addArtist();
+                    if($temp=="Error")
+                        include "Viewer/newArtist.php";
+                    else
+                        include "Viewer/artistAdded.php";
+                }
             }
             /*else if($arg="register"){
                 if(isset($_SESSION['logIN']))
