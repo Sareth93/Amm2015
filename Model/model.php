@@ -19,7 +19,7 @@
                 $this->connectToDB();
                 if(self::$mysqli->errno>0)
                     return "Error";
-                $result=self::$mysqli->query("SELECT username, password, id FROM users;");
+                $result=self::$mysqli->query("SELECT username, password, id FROM users");
                 while($row=$result->fetch_row()){
                     if(($_REQUEST['username']==$row[0]) && ($_REQUEST['password']==$row[1])){
                         $_SESSION["logIN"]=true;
@@ -42,8 +42,8 @@
                 setcookie(session_name (),'',time()-2592000,'/');
             session_destroy();              
         }
-                //inserimento nuova utente
-        public function newUser(){
+        //inserimento nuova utente
+        /*public function newUser(){
             if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
                 $result=  $this->connectToDB();
                 if(self::$mysqli->errno>0)
@@ -52,14 +52,14 @@
                 $password=$_REQUEST['password'];
                 
                 self::$mysqli->autocommit(false);
-                $result=  self::$mysqli->query("INSERT INTO users(username,password) VALUES ('$user', '$password');");
+                $result=  self::$mysqli->query("INSERT INTO users(username,password) VALUES ('$user', '$password')");
                 if(self::$mysqli->errno>0){
                     self::$mysqli->rollback();
                     self::$mysqli->close();
                     return "IError";
                 }
                 else{
-                    $result=self::$mysqli->query("UPDATE users SET password='$password' WHERE username='$user';");
+                    $result=self::$mysqli->query("UPDATE users SET password='$password' WHERE username='$user'");
                     if(self::$mysqli->errno>0){
                     self::$mysqli->rollback();
                     self::$mysqli->close();
@@ -74,7 +74,7 @@
             }
             else
                 return "Error";
-        }
+        }*/
         //elenco utenti
         public function usersList(){
             $this->connectToDB();
@@ -107,7 +107,7 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 else{
-                    self::$mysqli->query("INSERT INTO songs(title,artist_id) VALUES ('$title', '$artist');");
+                    self::$mysqli->query("INSERT INTO songs(title,artist_id) VALUES ('$title', '$artist')");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else
@@ -115,7 +115,7 @@
                 }
             }
         }
-                //rimozione canzone
+        //rimozione canzone
         public function deleteSong(){
             if(isset($_REQUEST['delete'])){
                 $this->connectToDB();
@@ -123,7 +123,7 @@
                     return "Error";
                 else{
                     $song_id=$_REQUEST['delete'];
-                    $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id' AND favoriteBy IS NULL;");
+                    $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id' AND favoriteBy IS NULL");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else
@@ -136,8 +136,8 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Error";
-            $result=self::$mysqli->query("SELECT title, artists.artistName, users.username, songs.song_id FROM songs, artists, users
-                                          WHERE artists.artist_id=songs.artist_id AND users.id=songs.favoriteBy;");
+            $result=self::$mysqli->query("SELECT title, artistName, username, song_id FROM songs, artists, users
+                                          WHERE artists.artist_id=songs.artist_id AND users.id=songs.favoriteBy");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
@@ -148,7 +148,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Error";
-            $result=self::$mysqli->query("SELECT title, song.song_id, artistName FROM songs, artist WHERE artist.artist_id=songs.artist_id AND favoriteBy IS NULL;");
+            $result=self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artist WHERE artist.artist_id=songs.artist_id AND favoriteBy IS NULL");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
@@ -163,7 +163,7 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 else{
-                    self::$mysqli->query("UPDATE songs SET favoriteBy=(SELECT id FROM users WHERE username='$user') WHERE song_id='$song' AND favoriteBy IS NULL;");
+                    self::$mysqli->query("UPDATE songs SET favoriteBy=(SELECT id FROM users WHERE username='$user') WHERE song_id='$song' AND favoriteBy IS NULL");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else
@@ -181,7 +181,7 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 else{
-                    self::$mysqli->query("UPDATE songs SET favoriteBy=NULL WHERE song_id='$song';");
+                    self::$mysqli->query("UPDATE songs SET favoriteBy=NULL WHERE song_id='$song'");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else
@@ -196,7 +196,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Login Error";
-            $result= self::$mysql->query("SELECT name, artist_id FROM artists;");
+            $result= self::$mysql->query("SELECT name, artist_id FROM artists");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
@@ -210,7 +210,7 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 else{
-                    self::$mysqli->query("INSER INTO artists(artistName) VALUES ('$artistName');");
+                    self::$mysqli->query("INSER INTO artists(artistName) VALUES ('$artistName')");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else
