@@ -192,7 +192,7 @@
                 return "Error";
         } 
         //elenco artisti
-        public function artists(){
+        public function artistsList(){
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Login Error";
