@@ -57,7 +57,10 @@
                     if($artists!="Error"){                        
                         include 'Viewer/addSongAdmin.php';
                         $result=$this->model->addSong();
-                        //include 'Viewer/songAdded.php';                        
+                        if($result!="Error")
+                            include 'Viewer/songAdded.php';                        
+                        else
+                            include 'Viewer/error.php';
                     }
                     else
                         include 'Viewer/error.php';
