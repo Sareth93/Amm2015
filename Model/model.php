@@ -80,7 +80,7 @@
             $this->connectToDB();
             if(self::$mysqli->errno>0)
                 return "Error";
-            $result=self::$mysqli->query("SELECT username FROM users WHERE id>=2;");
+            $result=self::$mysqli->query("SELECT username FROM users WHERE id>=2");
             if(self::$mysqli->errno>0)
                 return "Error";
             else
@@ -91,7 +91,7 @@
             $this->connectToDB();           
             if(self::$mysqli->errno>0)
                 return "Login Error";         
-            $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE artists.artist_id=songs.artist_id;");
+            $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE artists.artist_id=songs.artist_id");
             if(self::$mysqli->errno>0){
                 echo 'ciao1';
                 return "Error";}
