@@ -105,7 +105,11 @@
                 else
                     include 'Viewer/favoriteRemoved.php';
             }*/
-            else if($arg="addArtist"){
+            else if($arg="addArtist1"){
+                if(isset($_SESSION['adm']))
+                    include 'Viewer/newArtist.php';
+            }
+            else if($arg="addArtist2"){
                 if(isset($_SESSION['adm'])){
                     $temp=$this->model->addArtist();
                     if($temp=="Error")
