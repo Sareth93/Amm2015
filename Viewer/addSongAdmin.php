@@ -1,6 +1,6 @@
 <?php
     echo "Inserisci una nuova canzone";
-    echo "<form action='index.php?arg=addSong' method='POST'>
+    echo "<form action='index.php?arg=newSong' method='POST'>
           <br><label>Titolo canzone</label>
           <input type='text' name='title' id='title' required=required'/></br>
           <label>Artista</label><select name='artistName'>";
