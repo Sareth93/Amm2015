@@ -154,7 +154,7 @@
                 if(self::$mysqli->errno>0)
                     return "Error";
                 else{
-                    self::$mysqli->query("UPDATE songs SET favoriteBy=(SELECT id FROM users WHERE username='$user') WHERE song_id='$song' AND favoriteBy IS NULL");
+                    self::$mysqli->query("UPDATE songs SET favoriteBy=(SELECT id FROM users WHERE users.username='$user') WHERE song_id='$song' AND favoriteBy IS NULL");
                     if(self::$mysqli->errno>0)
                         return "Error";
                     else

@@ -74,7 +74,7 @@
                     include 'Viewer/accessDenied.php';
             }
             else if($arg="favoriteList"){
-                if(isset($_SESSION['adm'])){
+                if(isset($_SESSION['username'])){
                     $result=$this->model->favorites();
                     if($result="Error"){
                         echo "ciaoContr1";
@@ -85,7 +85,7 @@
                 }
             }
             else if($arg=="notFavoriteList"){
-                if(isset($_SESSION['adm'])){
+                if(isset($_SESSION['username'])){
                     $usr=$this->model->usersList();
                     $songs=  $this->model->notFavorite();
                     include 'Viewer/newFavorite.php';
