@@ -67,8 +67,8 @@
                     return "Error";}
                 else{
                     $song_id=$_REQUEST['delete'];
-                    $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id' AND favoriteBy IS NULL");
-                    if(self::$mysqli->errno>0){
+                    $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id'");
+                    if(self::$mysqli->errno>0 || self::$mysqli->affected_rows!=1){
                         echo "deleteSong2";
                         return "Error";}
                     else
