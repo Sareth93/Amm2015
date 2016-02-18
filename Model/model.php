@@ -17,10 +17,8 @@
             if(isset($_REQUEST['username'])&& isset($_REQUEST['password'])){
                 $this->connectToDB();
                 $result=self::$mysqli->query("SELECT username, password, id FROM users");
-                if(self::$mysqli->errno>0){
-                    echo "Ciaologin";
-                    return "Error";
-                }
+                if(self::$mysqli->errno>0)
+                    return "Error";                
                 else
                     return $result;
             }
@@ -35,15 +33,11 @@
         //elenco canzoni
         public function songs(){
             $this->connectToDB();           
-            if(self::$mysqli->errno>0){
-                echo "songs1";
-                return "Login Error"; 
-            }
+            if(self::$mysqli->errno>0)
+                return "Login Error";            
             $result= self::$mysqli->query("SELECT title, song_id, artistName FROM songs, artists WHERE songs.artist_id=artists.artist_id");
-            if(self::$mysqli->errno>0){
-                echo "songs2";
-                return "Error";
-            }
+            if(self::$mysqli->errno>0)
+                return "Error";            
             else
                 return $result;
         }
@@ -53,14 +47,12 @@
                 $title=$_REQUEST['title'];
                 $artist=$_REQUEST['artist'];
                 $this->connectToDB();
-                if(self::$mysqli->errno>0){
-                    echo "addSong1";
-                    return "Error";}
+                if(self::$mysqli->errno>0)                    
+                    return "Error";
                 else{
                     self::$mysqli->query("INSERT INTO songs(title,artist_id) VALUES ('$title', '$artist')");
-                    if(self::$mysqli->errno>0){
-                        echo "addSong2";
-                        return "Error";}
+                    if(self::$mysqli->errno>0)
+                        return "Error";
                     else
                         return "Ok";
                 }
@@ -70,10 +62,10 @@
         public function deleteSong(){
             if(isset($_REQUEST['delete'])){
                 $this->connectToDB();
-                if(self::$mysqli->errno>0){
+                /*if(self::$mysqli->errno>0){
                     echo "deleteSong1";
                     return "Error";}
-                else{
+                else{*/
                     $song_id=$_REQUEST['delete'];
                     $del=self::$mysqli->query("DELETE FROM songs WHERE song_id='$song_id' AND favoriteBy IS NULL");
                     if(self::$mysqli->errno>0 || self::$mysqli->affected_rows!=1){
@@ -81,7 +73,7 @@
                         return "Error";}
                     else
                         return "Ok";
-                }
+                //}
             }
         } 
         //elenco artisti

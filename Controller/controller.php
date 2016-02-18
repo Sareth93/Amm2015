@@ -24,8 +24,7 @@
                             $_SESSION["password"]=$_REQUEST['password'];                        
                             if($row[2]==1)
                                 $_SESSION["adm"]=true; 
-                            include 'Viewer/loginSucc.php';
-                            //return $_SESSION["username"];
+                            include 'Viewer/loginSucc.php';                            
                         }
                     }                    
                 }
