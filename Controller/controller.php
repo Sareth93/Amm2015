@@ -12,7 +12,7 @@
             //presentazione menù login
             if(($arg=="" && !isset($_SESSION['logIN'])) || ($arg=="loginTry"))
                 include 'Viewer/loginTry.php';
-            else if($arg=="" && isset($_SESSION['loggedIn']))
+            else if($arg=="" && isset($_SESSION['logIN']))
                 include 'Viewer/loginSucc.php';
             else if($arg=="login"){
                 $result=$this->model->login();
